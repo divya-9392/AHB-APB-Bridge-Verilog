@@ -29,8 +29,6 @@ wire [31:0] Paddr;
 wire [31:0] Pwdata;
 
 
-// DUT
-
 ahb_apb_bridge DUT(
 
 .Hclk(Hclk),
@@ -62,12 +60,8 @@ ahb_apb_bridge DUT(
 );
 
 
-// Clock
-
 always #5 Hclk = ~Hclk;
 
-
-// Stimulus
 
 initial
 begin
@@ -88,9 +82,6 @@ Prdata = 32'h12345678;
 #20;
 Hresetn = 1;
 
-
-// READ
-
 #10;
 
 Haddr = 32'h80000010;
@@ -100,8 +91,6 @@ Htrans = 2'b10;
 #20;
 
 
-// WRITE
-
 Haddr = 32'h80000020;
 Hwdata = 32'hAAAAAAAA;
 
@@ -109,9 +98,6 @@ Hwrite = 1;
 Htrans = 2'b10;
 
 #20;
-
-
-// BURST WRITE
 
 Haddr = 32'h80000024;
 Hwdata = 32'h11111111;
