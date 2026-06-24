@@ -42,10 +42,6 @@ reg penable_temp,pwrite_temp,hreadyout_temp;
 reg [2:0] psel_temp;
 
 
-//====================================================
-// PRESENT STATE LOGIC
-//====================================================
-
 always @(posedge hclk)
 begin
     if(!hresetn)
@@ -53,11 +49,6 @@ begin
     else
         state <= next_state;
 end
-
-
-//====================================================
-// NEXT STATE LOGIC
-//====================================================
 
 always @(*)
 begin
@@ -127,11 +118,6 @@ begin
 
     endcase
 end
-
-
-//====================================================
-// TEMPORARY OUTPUT LOGIC
-//====================================================
 
 always @(*)
 begin
@@ -233,9 +219,6 @@ begin
 end
 
 
-//====================================================
-// REGISTERED OUTPUT LOGIC
-//====================================================
 
 always @(posedge hclk)
 begin
