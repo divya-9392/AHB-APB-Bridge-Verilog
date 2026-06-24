@@ -24,7 +24,6 @@ output [31:0] Pwdata
 
 );
 
-// Internal Signals
 
 wire valid;
 
@@ -39,10 +38,6 @@ wire Hwritereg1;
 
 wire [2:0] tempselx;
 
-
-//--------------------------------------------------
-// AHB SLAVE INTERFACE
-//--------------------------------------------------
 
 ahb_slave_interface AHB_Slave(
 
@@ -76,11 +71,6 @@ ahb_slave_interface AHB_Slave(
 .Hrdata(Hrdata)
 
 );
-
-
-//--------------------------------------------------
-// APB CONTROLLER
-//--------------------------------------------------
 
 apb_controller APB_Controller(
 
